@@ -104,7 +104,13 @@ export default {
 
 /* form đăng kí tài khoản */
 
-
+.input{
+ 
+    text-align: center;
+    border: none;
+    font-size: 16px;
+    margin-top: 50px;
+}
 .form {
     display: grid;
     margin-top: 200px;

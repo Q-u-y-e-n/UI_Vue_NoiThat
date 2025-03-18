@@ -1,4 +1,4 @@
-<template >
+<template>
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <div class="wrapper">
     <header class="menu-toggle" >
@@ -23,8 +23,8 @@
                 </div>
             </div>
             <div class="navbar-cart-login-icon">
-              <a style="font-size: 2rem;" href=""> <i  class="fa-solid fa-bag-shopping"></i></a>
-              <a style="font-size: 2rem; padding-bottom: 10px;" href="signin"><i  class="fa-solid fa-user"></i></a>
+                <a style="font-size: 2rem;" href=""> <i  class="fa-solid fa-bag-shopping"></i></a>
+                <a style="font-size: 2rem; padding-bottom: 10px;" href="signin"><i  class="fa-solid fa-user"></i></a>
 
 
             </div>
@@ -32,182 +32,108 @@
         <div class="hamburger" @click="toggleMenu">☰</div>
    
 </header>
-<main>
-    <div class="product-detail">
-        <div class="product-detail-item">
-            <img  class="product-detail-img" src="@/assets/IMG/ban-an.jpg" alt="">
-        </div>
-        <div class="product-detail__img-detail">
-            <h3 class="title-detail__h3">Bộ bàn gỗ tự nhiên phong cách hiện đại</h3>
-            <p>Giá bán: <span style="color:brown">8 triệu</span> <br> Đã bán: <span style="color:brown">45</span></p>
-            <h4 class="title-detail">Kích thước</h4>
-            <ul>
-                <li>Bàn ăn: chiều dài 140cm x Chiều rộng 70cm x Chiều cao 75cm</li>
-                <li>Ghế ăn: chiều dài 140cm x Chiều rộng 70cm x Chiều cao 75cm</li>
-            </ul>
-            <h4 class="title-detail">Mô tả</h4>
-            <ul>
-                <li>Bộ bàn ăn gỗ tự nhiên phong cách hiện đại gồm 1 bàn ăn và 6 ghế, thiết kế tố giản nhưng tinh tế. Mặt bàn đen sang trọng kết hợp với khung gỗ chắc chắn, tạo nên điểm nhấn cho không gian phòng ăn.</li>
-                <li>Ghế có đệm bọc vải mềm mại, mang lại cảm giác thoải mái khi sử dụng</li>
-                <li>Sản phẩm phù hợp với nhiều phong cách nội thất từ hiện đại đến tối giản, giúp bữa ăn gia đình thêm ấm cúng và sang trọng</li>
-            </ul>
-            <div class="quantity-control">
-                <button @click="decrease" class="btn--sub">-</button>
-                <input type="text" v-model="quantity" class="input--number" readonly />
-                <button @click="increase" class="btn--add">+</button>
-            </div>
-            <div class="button-group">
-                <button class="button-group-item button-group__bag" type="submit">THÊM VÀO GIỎ HÀNG</button>
-                <button class="button-group-item button-group__buy" type="submit">MUA NGAY</button>
-            </div>
-
-        </div>
-
-    </div>
-</main>
 </div>
 
+<main>
+    <div>
+        <!-- <h1>--- Blog ---</h1> -->
+        <h2 class="header-blog">Cửa hàng nội thất Moda Casa - <i style="color:brown">Nơi kiến tạo không gian sống hoàn hảo</i></h2>
+        <p class="text-about">🏡 Moda Casa tự hào là thương hiệu nội thất cao cấp, mang đến những thiết kế tinh tế, hiện đại và đầy cảm hứng. Với sứ mệnh kiến tạo không gian sống lý tưởng, chúng tôi cung cấp đa dạng các sản phẩm nội thất từ phòng khách, phòng ngủ, đến nhà bếp – tất cả đều được chế tác từ chất liệu cao cấp, đảm bảo độ bền và tính thẩm mỹ vượt thời gian.</p>
+        <p class="title-footer">Vì sao nên chọn Moda Casa ?</p>
+        <div >
+                <div class="feature-footer" >
+                    
+                            <div class="feature-footer-item">
+                                <i class="icon-feature fa-solid fa-truck-fast"></i>
+                                <p class="text-feature">Giao hàng và lắp đặt miễn phí</p>
+                            </div>
+                        
+                            <div class="feature-footer-item">
+                                <i class="icon-feature fa-solid fa-arrows-rotate"></i>
+                                <p class="text-feature">30 ngày đổi trả miễn phí</p>
+                            </div>
+                       
+                            <div class="feature-footer-item">
+                                <i class="icon-feature fa-solid fa-headphones"></i>
+                                <p class="text-feature">Tư vấn thiết kế miễn phí</p>
+                            </div>
+                        
+                           
+                            <div class="feature-footer-item">
+                                <i class="icon-feature fa-solid fa-circle-check"></i>
+                                <p class="text-feature">Thương hiệu uy tín toàn cầu</p>
+                            </div>
+                     
+                </div>
+           </div>
+    </div>
+</main>
 </template>
 <script>
-export default {
-  data() {
-    return {
-      quantity: 1, // Số lượng mặc định
-    };
-  },
-  methods: {
-    increase() {
-      this.quantity++;
-    },
-    decrease() {
-      if (this.quantity > 1) this.quantity--;
-    },
-  },
-};
-
-
 const images = import.meta.glob('@/assets/IMG/*.jpg', { eager: true });
 
 // Chuyển danh sách import thành một mảng đường dẫn ảnh
 const imageList = Object.values(images).map(img => img.default);
 
 console.log(imageList); // Kiểm tra danh sách ảnh được import
+
 </script>
 <style>
 
-
-.button-group-item{
+.header-blog{
+   margin-top: 30px;
+    font-size: 2rem;
+    font-weight: 800;
+    text-align: center;
+}
+.text-about{
+   line-height: 3rem;
+    font-size: 1.5rem;
+    font-weight: 400;
+    padding: 0 10rem;
+    margin-top: 20px;
+   
+}
+/* main{
     
-    border-style: none;
-    padding: 15px 20px;
-    width: 15rem;
-    margin: 0 auto;
-    border-radius: 7px;
-    font-size: 1rem;
-    color:white;
-}
-.button-group__bag{
-   margin-bottom: 20px;
-   background-color: RGB(140, 70, 19);
-}
-.button-group__buy{
-    background-color:RGB(240, 104, 56);
     
+} */
+.feature-footer{
+    /* margin-top: 50px; */
+   display: flex;
+   justify-content: space-around;
+    flex-wrap: wrap;
+
+   
 }
 
-.button-group {
-  display: flex;
-  flex-direction: column;
-  margin-top: 20px;
+
+.text-feature{
+   text-align: center;
+   font-size: 1.7rem;
+   font-weight: 400;
+
+
+}
+
+.feature-footer-item{
+   background-color:RGB(239, 226, 209);
+   width: 20rem;
+   height: 15rem;
+   border: 5px solid #7a5b2f;
+   font-weight: 900;
+   font-size: 1.3rem;
  
 }
-
-.quantity-control {
-  display: flex;
-  align-items: center;
-  border: 1px solid #ccc;
-  width: 100px;
-  border-radius: 5px;
-  overflow: hidden;
-  margin-top: 12px;
-  margin-left: 20px;
-}
-
-.btn--sub
- {
-  width: 30px;
-  height: 30px;
-  border: none;
-  background-color: #f8f8f8;
-  cursor: pointer;
-  font-size: 18px;
-}
-.btn--add{
-  width: 30px;
-  height: 30px;
-  border: none;
-  background-color: #f8f8f8;
-  cursor: pointer;
-  font-size: 18px;
-}
-
-.input--number {
-  width: 40px;
-  text-align: center;
-  border: none;
-  font-size: 16px;
-}
-
-.btn:hover {
-  background-color: #ddd;
-}
-
-
-/* header */
-.title-detail{
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.title-detail__h3{
-    font-size: 2rem;
-    
-    font-weight: bold;
-}
-.product-detail{
-    display: flex;
-    margin-top: 20px 50px;
-    justify-content: center;
-    flex-wrap: wrap;
-    font-size: 1.3rem;
-    
-  
-}
-.product-detail-item{
-   
-    margin: 0 20px;
-  
-}
-.product-detail-img{
-    width: 40rem;
-    height:40rem;
-    margin: 15px;
-}
-
-.product-detail__img-detail{
-    flex: 1;
-    width:40rem;
-    height:30rem;
-    margin: 15px;
-  
-  
+.icon-feature{
+   text-align: center;
+   font-size: 3rem;
+   margin: 3rem 8rem;
 }
 main{
-    background-color: RGB(242, 239, 234);
-}
-
-
-
+    padding-top: 50px;
+    margin-bottom: 30px;;
+}   
 
 
 
@@ -396,5 +322,16 @@ body{
 }
 .fa-bag-shopping{
    margin: 1rem;
+}
+
+.title-footer{
+    margin-top: 30px;
+   text-align: center;
+   font-size: 2rem;
+   background-color: RGB(138, 99, 68);
+   padding: 12px;
+   color: white;
+
+
 }
 </style>

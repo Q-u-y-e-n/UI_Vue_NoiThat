@@ -1,18 +1,19 @@
 <template>
-    <div style="height: 375px" class="container">
+    <div style="height: 375px" class="container-sig">
 
-<div  style="height: 250px" class="form">
+<div   class="form-sig">
     <form action="" method="POST">
         <h1>THÔNG TIN ĐĂNG NHẬP</h1>
         <div class="input">
-            <div class="form-item">
+            <div class="form-item-sig">
             
-                <label  class="title" for="username">Tên đăng nhập</label>
-                <input v-models="form.name" style="  padding: 0 16px;" class="nhap" type="text" name="email" id="username" >
+                <label 
+             class="title-sig" for="username">Tên đăng nhập</label>
+            <input v-models="form.name" style="  padding: 0 16px;" class="nhap" type="text" name="email" id="username" >
             </div>
             <div class="form-item">
             
-                <label  class="title" for="password">Mật khẩu</label>
+                <label   class="title-sig" for="password">Mật khẩu</label>
                 <input v-models="form.name"  style="  padding: 0 16px;"  class="nhap" type="password" name="password" id="password" >
             </div>
         </div>
@@ -67,7 +68,7 @@ export default {
 /* form đăng kí tài khoản */
 
 
-.form {
+.form-sig {
     display: grid;
     margin-top: 200px;
     margin-left: 100px;
@@ -78,9 +79,10 @@ export default {
     box-sizing: content-box;
     height: 300px;
     position: absolute;
-    top: -43%;
-    left: -10%;
+    top: -49%;
+    left: -13%;
     padding: 20px;
+    
 
 }
 
@@ -89,7 +91,10 @@ h1 {
   
 }
 
-.container {
+.input{
+    min-width: 516px;
+}
+.container-sig {
     background-color: RGB(255, 237, 237);
     width: 600px;
     height: 400px;
@@ -99,7 +104,7 @@ h1 {
    
 }
 
-.form-item {
+.form-item-sig {
     display: flex;
     margin: 15px;
     margin-bottom: 10px;
@@ -109,11 +114,14 @@ h1 {
     border-radius: 3px;;
 }
 
-.title {
+.title-sig {
     font-size: 20px;
-    margin-right: 10px;
+   
     min-height: 20px;
     flex: 1;
+    min-width: 200px;   /* Giữ độ rộng cố định cho label */
+    text-align: left;
+    
 }
 
 .nhap {
