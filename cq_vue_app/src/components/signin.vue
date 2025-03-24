@@ -2,7 +2,7 @@
     <div style="height: 375px" class="container-sig">
 
 <div   class="form-sig">
-    <form action="" method="POST">
+    <form @submit.prevent="signup" action="" method="POST" >
         <h1>THÔNG TIN ĐĂNG NHẬP</h1>
         <div class="input">
             <div class="form-item-sig">
@@ -22,13 +22,13 @@
                 <button style=" 
                 padding: 8px 16px;
                 border-radius: 5px;
-                background-color: RGB(255, 195, 213);
-                border: 1px solid RGB(255, 195, 213);
+                background-color: RGB(167, 110, 67);
+                border: 1px solid RGB(167, 110, 67);
                  display: flex; 
                 margin: auto;
                 margin-top: 5px;
                 font-size: 1rem;
-                color: rgb(66, 63, 63);
+                color: white;
                   
                  " class="gui" type="submit">Đăng nhập</button>
             </div>
@@ -72,7 +72,7 @@ export default {
     display: grid;
     margin-top: 200px;
     margin-left: 100px;
-    background-color: RGB(255, 237, 237);
+    background-color: RGB(231, 218, 202);
     border: solid 2px black;
     border-radius: 20px;
     padding: 20px;
@@ -80,7 +80,7 @@ export default {
     height: 300px;
     position: absolute;
     top: -49%;
-    left: -13%;
+    left: -14.5%;
     padding: 20px;
     
 
@@ -95,7 +95,7 @@ h1 {
     min-width: 516px;
 }
 .container-sig {
-    background-color: RGB(255, 237, 237);
+    background-color: RGB(231, 218, 202);
     width: 600px;
     height: 400px;
     position: relative;

@@ -2,47 +2,55 @@
     <div class="container">
 
 <div class="form">
-    <form action="" method="POST">
+    <form  @submit.prevent="signup" action="" method="POST">
         <h1>ĐĂNG KÍ TÀI KHOẢN</h1>
-        <div class="form-item">
-          
-            <label  class="title" for="username">Email</label>
-            <input v-models="form.email"  style="  padding: 0 16px;"  class="nhap" type="text" name="email" id="username" >
-        </div>
-        <div class="form-item">
-          
-            <label class="title" for="sdt">Số điện thoai</label>
-           <input v-models="form.sdt"  style="  padding: 0 16px;"  class="nhap" type="number" name="sdt" id="sdt">
-        </div>
 
-        <div class="form-item">
+        
+             <!-- {% csrf_token %} -->
+
+
+            <div class="form-item">
             
-            <label class="title" for="mk">Mật khẩu</label>
-            <input v-models="form.mk"  style="  padding: 0 16px;"  class="nhap" type="password" name="mk" id="mlk" >
-        </div>
-        <div class="form-item">
-         
-            <label  class="title" for="confirm">Xác nhận mật khẩu</label>
-            <input v-models="form.confirm"  style="  padding: 0 16px;"  class="nhap" type="password" name="confirm" id="confirm" >
-        </div>
-       
+                <label  class="title" for="username">Email</label>
+                <input v-models="form.email"  style="  padding: 0 16px;"  class="nhap" type="text" name="email" id="username" >
+            </div>
+            <div class="form-item">
+            
+                <label class="title" for="sdt">Số điện thoai</label>
+            <input v-models="form.sdt"  style="  padding: 0 16px;"  class="nhap" type="number" name="sdt" id="sdt">
+            </div>
 
-        <div  style="margin-bottom: 4px; "  class="nut" >
-            <button @click="signup()" style=" 
-            padding: 10px 25px;
-            border-radius: 5px;
-            background-color: RGB(255, 195, 213);
-            border: 1px solid RGB(255, 195, 213);
-             display: flex; 
-            margin: auto;
-            margin-top: 5px;
-            font-size: 1rem;
-             
-            color: rgb(66, 63, 63);
-             " class="gui" type="submit">Đăng ký</button>
-        </div>
+            <div class="form-item">
+                
+                <label class="title" for="mk">Mật khẩu</label>
+                <input v-models="form.mk"  style="  padding: 0 16px;"  class="nhap" type="password" name="mk" id="mlk" >
+            </div>
+            <div class="form-item">
+            
+                <label  class="title" for="confirm">Xác nhận mật khẩu</label>
+                <input v-models="form.confirm"  style="  padding: 0 16px;"  class="nhap" type="password" name="confirm" id="confirm" >
+            </div>
+        
+
+            <div  style="margin-bottom: 4px; "  class="nut" >
+                <button @click="signup()" style=" 
+                padding: 10px 25px;
+                border-radius: 5px;
+                background-color:RGB(167, 110, 67);
+                border: 1px solid RGB(167, 110, 67);
+                display: flex; 
+                margin: auto;
+                margin-top: 5px;
+                font-size: 1rem;
+                
+                color: white;
+                " class="gui" type="submit">Đăng ký</button>
+            </div>
+        
        
     </form>
+    <!-- <p v-if="message" id="message">{{ message }}</p> -->
+
 
 </div>
 </div>
@@ -50,51 +58,54 @@
 
 <script>
 
-import axios from 'axios';
-
 export default {
-    name: 'signup',
-    data() {
-        return {
-            form: {
-                email: '',
-                sdt: '',
-                password: '',
-                confirm: ''
-            }
-        };
-    },
-    methods: {
-        async signup() {
-            console.log("Dữ liệu gửi đi:", this.form);
+  data() {
+    return {
+      form: {
+        email: '',
+        sdt: '',
+        mk: '',
+        confirm: ''
+      },
+      message: ''
+    };
+  },
+  methods: {
+    async signup() {
+      if (this.form.mk !== this.form.confirm) {
+        this.message = 'Mật khẩu xác nhận không khớp';
+        return;
+      }
 
-            let userItem = {
-                email: this.form.email,
-                sdt: this.form.sdt,
-                password: this.form.password,
-                confirm: this.form.confirm
-            };
+      try {
+        let response = await fetch('http://localhost:3000/users', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email: this.form.email,
+            sdt: this.form.sdt,
+            password1: this.form.mk,
+            password2: this.form.confirm,
+          }),
+        });
 
-            try {
-                let result = await axios.post('http://localhost:3001/users', userItem);
-                console.log("Kết quả API:", result.data);
-
-                // Reset form sau khi đăng ký thành công
-                this.form = {
-                    email: '',
-                    sdt: '',
-                    password: '',
-                    confirm: ''
-                };
-
-                alert("Đăng ký thành công!");
-            } catch (error) {
-                console.error("Lỗi khi gửi API:", error);
-                alert("Có lỗi xảy ra, vui lòng thử lại!");
-            }
+        let result = await response.json();
+        if (response.status === 201) {
+          alert('Đăng ký thành công! Chuyển đến trang Home.');
+          window.location.href = '/';
+          
+        } else {
+          this.message = result.error || JSON.stringify(result);
         }
+      } catch (error) {
+        this.message = 'Đã có lỗi xảy ra, vui lòng thử lại!';
+      }
     }
+  }
 };
+
 </script>
 
 
@@ -115,7 +126,7 @@ export default {
     display: grid;
     margin-top: 200px;
     margin-left: 100px;
-    background-color: RGB(255, 237, 237);
+    background-color: RGB(231, 218, 202);
     border: solid 2px black;
     border-radius: 20px;
     padding: 20px;
@@ -134,7 +145,7 @@ h1 {
 }
 
 .container {
-    background-color: RGB(255, 237, 237);
+    background-color: RGB(231, 218, 202);
     width: 600px;
     height: 400px;
     position: relative;

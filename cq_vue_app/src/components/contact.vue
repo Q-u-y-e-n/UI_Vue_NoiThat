@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="navbar-cart-login-icon">
-               <a style="font-size: 2rem;" href=""> <i  class="fa-solid fa-bag-shopping"></i></a>
+               <a style="font-size: 2rem;" href="cart"> <i  class="fa-solid fa-bag-shopping"></i></a>
               <a style="font-size: 2rem; padding-bottom: 10px;" href="signin"><i  class="fa-solid fa-user"></i></a>
 
 
@@ -86,7 +86,7 @@ console.log(imageList); // Kiểm tra danh sách ảnh được import
 </script>
 <style>
 body{
-    background-color: RGB(239, 226, 209);
+    background-color: RGB(242, 239, 234) !important;
 }
 
 
@@ -114,6 +114,9 @@ body{
     .navbar-logo{
 
         display: none;
+    }
+    .header-contact{
+        margin-top: 200px;
     }
 
     main{
@@ -147,7 +150,7 @@ body{
 
 
 
-
+/* 
 .button-container {
   position: absolute;
   top: 50%;
@@ -159,7 +162,7 @@ body{
   background: rgba(255, 255, 255, 0.5);
   padding: 10px;
   border-radius: 50%;
-}
+} */
 
 
 

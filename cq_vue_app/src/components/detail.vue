@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="navbar-cart-login-icon">
-              <a style="font-size: 2rem;" href=""> <i  class="fa-solid fa-bag-shopping"></i></a>
+              <a style="font-size: 2rem;" href="cart"> <i  class="fa-solid fa-bag-shopping"></i></a>
               <a style="font-size: 2rem; padding-bottom: 10px;" href="signin"><i  class="fa-solid fa-user"></i></a>
 
 
@@ -57,8 +57,8 @@
                 <button @click="increase" class="btn--add">+</button>
             </div>
             <div class="button-group">
-                <button class="button-group-item button-group__bag" type="submit">THÊM VÀO GIỎ HÀNG</button>
-                <button class="button-group-item button-group__buy" type="submit">MUA NGAY</button>
+                <button class="button-group-item button-group__bag" type="submit"><a style="text-decoration: none; color: white" href="">THÊM VÀO GIỎ HÀNG</a> </button>
+                <button class="button-group-item button-group__buy" type="submit"><a style="text-decoration: none; color: white" href="shop_cart">MUA NGAY</a> </button>
             </div>
 
         </div>

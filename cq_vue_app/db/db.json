@@ -1,46 +1,46 @@
 {
   "users": [
     {
-      "id": "6b2a",
+      "id": "6830",
       "email": "",
       "sdt": "",
-      "password": "",
-      "confirm": ""
+      "password1": "",
+      "password2": ""
     },
     {
-      "id": "1eb8",
+      "id": "494d",
       "email": "",
       "sdt": "",
-      "password": "",
-      "confirm": ""
+      "password1": "",
+      "password2": ""
     },
     {
-      "id": "df78",
+      "id": "3768",
       "email": "",
       "sdt": "",
-      "password": "",
-      "confirm": ""
+      "password1": "",
+      "password2": ""
     },
     {
-      "id": "b011",
+      "id": "63e9",
       "email": "",
       "sdt": "",
-      "password": "",
-      "confirm": ""
+      "password1": "",
+      "password2": ""
     },
     {
-      "id": "6b88",
+      "id": "a8c4",
       "email": "",
       "sdt": "",
-      "password": "",
-      "confirm": ""
+      "password1": "",
+      "password2": ""
     },
     {
-      "id": "b382",
+      "id": "744e",
       "email": "",
       "sdt": "",
-      "password": "",
-      "confirm": ""
+      "password1": "",
+      "password2": ""
     }
   ]
 }

@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="navbar-cart-login-icon">
-                <a style="font-size: 2rem;" href=""> <i  class="fa-solid fa-bag-shopping"></i></a>
+                <a style="font-size: 2rem;" href="cart"> <i  class="fa-solid fa-bag-shopping"></i></a>
                 <a style="font-size: 2rem; padding-bottom: 10px;" href="signin"><i  class="fa-solid fa-user"></i></a>
 
 
@@ -35,17 +35,17 @@
 </div>
 <main>
 
-<div class="banner">
+    <div class="banner">
     <section class="slider">
-        <div class="slides">
-            <img v-show="currentSlide === 1" class="banner-1" src="@/assets/IMG/bann1.jpg" alt="Hình 1">
-            <img v-show="currentSlide === 2" class="banner-2" src="@/assets/IMG/bann2-1.jpg" alt="Hình 2">
-        </div>
-        <div class="button-container">
-            <i @click="toggleSlide" class="fa-solid fa-arrow-right"></i>
-        </div>
-     </section> 
-</div>
+      <div class="slides">
+        <img v-show="currentSlide === 1" class="banner-1" src="@/assets/IMG/bann1.jpg" alt="Hình 1">
+        <img v-show="currentSlide === 2" class="banner-2" src="@/assets/IMG/bann2-1.jpg" alt="Hình 2">
+      </div>
+      <div class="button-container">
+        <i @click="nextSlide" class="fa-solid fa-arrow-right"></i>
+      </div>
+    </section> 
+  </div>
 
 <div style="margin-bottom: 25px;" class="demo-product">
                 <div class="demo-product">
@@ -319,15 +319,27 @@
 import {createApp, ref } from "vue";
 
 export default {
-  setup() {
-    const currentSlide = ref(1);
-
-    const toggleSlide = () => {
-      currentSlide.value = currentSlide.value === 1 ? 2 : 1;
+  data() {
+    return {
+      currentSlide: 1, // Bắt đầu từ slide 1
+      totalSlides: 2   // Có tổng cộng 2 slide
     };
-    return { currentSlide, toggleSlide };
-}    
+  },
+  mounted() {
+    // Chuyển tự động sang slide 2 sau 5 giây
+    setTimeout(() => {
+      this.currentSlide = 2;
+    }, 5000);
+  },
+  methods: {
+    nextSlide() {
+      console.log("Before Click:", this.currentSlide);
+      this.currentSlide = this.currentSlide === 1 ? 2 : 1;
+      console.log("After Click:", this.currentSlide);
+    }
   }
+};
+
   
 
 const images = import.meta.glob('@/assets/IMG/*.jpg', { eager: true });
